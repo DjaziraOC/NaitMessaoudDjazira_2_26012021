@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
 body {
-  font-family: "Raleway", "Sans serif";  /*le style de texte sera apliquéde sur l'ensemble de texte site*/
+  font-family: "Raleway", "Sans serif";  
   margin: 0;                                          
 }
 
@@ -9,6 +9,7 @@ a {
  color: inherit;
  text-decoration: none; 
 }
+/*Header*/
 .header {
   display: grid;                        
   align-items: center;
@@ -16,22 +17,15 @@ a {
   margin: auto;
 }
 .headerLogo{
-  padding: 0px 32px; /*(2rem à droite et à gauche)*/
-  height: 45px; /* peut être à modifier */
-  margin:auto;  /*(par défaut l'élément sera au centre)*/
+  padding: 0px 32px; 
+  height: 45px; 
+  margin:auto; 
   grid-area:logo;
 }
 .headerNav {   
-   /*  la barre d'outil principale du site (<nav> représente une section d'une page
-   ayant des liens vers d'autres pages ou des fragments de cette page)*/
   display: flex;
-  /*L'élément se comporte comme un élément de bloc et 
-  dispose son contenu selon le modèle des boîtes flexibles.*/
   align-items: right;
   grid-area: navbar; 
-  /*permet de définir la taille d'un objet de la grille et son 
-  emplacement via les bords de sa zone de grille."navbar": le bouton est placé dans la barre d'outils principale du 
-  navigateur, à côté de la barre d'URL. (pour les 2 liens princip du site )*/
 }
 .headerSignup {
   display: flex;
@@ -43,16 +37,16 @@ a {
 }
 .headerNavLink {
   padding: 40px;
-  font-weight: 500;/* la police du text utilisée */
+  font-weight: 500;
   text-align: center;
-  transition-duration: 0.2s; /*nombre de secondes :la durée une animation.*/
+  transition-duration: 0.2s; 
   border-top:  5px transparent solid; 
-  border-bottom: 3px transparent solid;/*bordure du bas (liens)*/
+  border-bottom: 3px transparent solid;
 }
 .headerNavLink[data-active=true] {
   color: #0065FC;
 }
-.headerNavLink:hover { /*pour survoler l'élément  */
+.headerNavLink:hover { 
   color: #0065FC;
 }
 @media screen and (min-width: 600px){
@@ -92,33 +86,22 @@ a {
   }
   .headerNavLink:hover {
     border-bottom-color:#0065FC;
-     /*:hover Cible n'importe quel élément <a> lorsque  */
-    /* celui-ci est survolé */
   }
 }
-
-/*@media permet d'associer un ensemble d'instructions imbriquées
-(peut être utilisé au niveau le plus haut de la feuille de style et également 
-à l'intérieur d'un groupe de règles conditionnel.)*/
-/*@media screen and (Max /*Max si l'ecran est < ou = alors (.....)*/
- /* .header{
-    grid-template-columns:auto 1fr auto auto; /*(emplacement des éléments dans la grille(colomn) )*/
-    /*grid-template-areas: "logo.navbar button"; /*(. pour avoir plus d'espace entre logo 
-    et les liens( barre d'outils))*/
-
 .main {
   max-width: 1440px;
-  margin: auto; /*permet de centrer un conteneur*/
+  margin: auto; 
   padding:32px;
   box-sizing: border-box;
 }
+/*Body*/
+/*Header*/
 .main {
   display:block;
 }
-
 .searchHeaderTitle {
   margin-bottom:20px 0px; 
-  /*20px s'appliquera (haut et ba) et 0 (gauche et droit)*/
+
 }
 .searchHeaderParagraph {
   margin-top: 16px 0px;
@@ -127,16 +110,12 @@ a {
   display: inline-flex;
   max-width: 100%;
   overflow: auto;
-  /*overflow définit comment gérer le dépassement
-   du contenu d'un élément dans son bloc*/
 }
 .searchFormIconMap {
   background-color: #F2F2F2;
   padding: 08px 12px;
   border-radius: 16px 0 0 16px;
   text-align:center;
-  /*alignement horizontal d'un élément 
-  de bloc ou de la boîte d'une cellule de tableau. */
 }
 .searchFormIconMap {
   margin-left: 1.5px;
@@ -149,12 +128,10 @@ a {
   padding: 0 24px;
   max-width: 225px;
 }
-/*Le pseudo-élément ::placeholder représente le texte de substitution 
-pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce texte.*/
 .searchFormInput::placeholder { 
   font-family: "Raleway", "Sans serif";
-  font-size: 16px;/*(la taille de texte)*/
-  font-weight: bold;  /*(la police du texte)*/
+  font-size: 16px;
+  font-weight: bold;  
   color: #00000069;
 }
 .searchFormSendInput {
@@ -166,7 +143,7 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
   padding: 0 24px;
   font-family: "Raleway", "Sans serif";
   font-size:  16px;
-  cursor: pointer; /*Le curseur est un pointeur /indique un lien/ une main*/
+  cursor: pointer;
 }
 @media screen and (max-width: 600px) {
   .searchForm {
@@ -175,11 +152,17 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
   }
   .searchFormInput {
     flex: 1;
-    padding: 0 5px;
- 
+    padding: 0 5px; 
+    position:relative ;
+    right: 8px;
+  }
+  .searchFormSendInput{
+    position:relative ;
+    right: 50px;
+    border-radius:16px
   }
   .searchFormSendInputText {
-    display: none; /*définit si un élément génère une boîte ou non(display box:none et contents)*/
+    display: none; 
   }
   .searchFormSendInputIconicon {
     display: block;
@@ -199,8 +182,6 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
   display: flex;
   margin-top: 32px;
   flex-wrap: wrap; 
-  /* flex-wrap indique si les éléments flexibles sont contraints à être disposés sur une seule ligne ou s'ils 
-  peuvent être affichés  sur plusieurs lignes avec un retour automatique.*/
 }
 .searchFiltersTitle {
   margin: 0 32px 16px 0;
@@ -274,12 +255,13 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
     margin-right: 16px;
   }
 }
-@media (max-width: 1440px) {
+/*Section hosting*/
 
-  .hosting { /* section hosting regroupe les deux grand volés (marseille et populaire*/
-  display: grid;/*piloter les éléments à partir de l'élément parent*/
-  column-gap: 32px; /* column-gap permet de définir l'espace entre les colonnes d'un élément*/
-  grid-template-columns: 2fr 1fr; /*définir les colonnes de la grille:fractionné */
+@media (max-width: 1440px) {
+  .hosting { 
+  display: grid;
+  column-gap: 32px; 
+  grid-template-columns: 2fr 1fr; 
   } 
 }
 @media (max-width: 925px){
@@ -322,27 +304,17 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
   box-sizing:border-box;
   background-color:#F2F2F2 ;
   border-radius:20px;
-  column-gap: 32px; /*espacées de 32px* colomn*/
-  row-gap: 32px;/*espacées de 32px ligne*/
+  column-gap: 32px; 
+  row-gap: 32px;
 }  
 .hostingTitle{
   display: block; 
-  /*l'élément prend toute la largeur disponble et qui pousse les autres éléments en dessous *pour les div , p et /
-  font-size: 25px;
-  margin-block-start: 13px;/*définit la marge logique appliquée au début des éléments en bloc, 
-  selon le mode d'écriture, la directionalité et l'orientation du texte*/
   margin-block-end: 13px;
   margin-inline-start: 0px; 
-  /* la marge logique appliquée au début des éléments en ligne, 
-  selon le mode d'écriture, la directionalité et l'orientation du texte*/
   margin-inline-end: 0px;
 }
 .hostingMainTitle {
   grid-column: 1/-1; 
-  /* OU (grid-column: 1 /-1)(l'emplacement de titre dans la grille ?définir la 
-    taille et l'emplacement d'un élément sur la grille en 
-    indiquant l'emplacement du début, de la fin et/ou sa taille. 
-    )*/
 }
 
 .hostingCard{
@@ -381,9 +353,6 @@ height: 100%;
 .hostingCardGradeIcon {
   margin:0px 12px 4px 12px;
   display: inline-block;
-  /*pour les icones, liens, et images, span ; inline prendd l'espace  disponble pour le contenu ,
-  ( sa serre à rien de mettre les hauteurs et les largeurs)/inline-block:sa va prendre les uns après les autres et 
-   ça ne va pas prendre toute l'espace comme display block et on peut lui attribué une latgeur et hauteur*/
 }
 .hostingCardGradeIconStars {
   color: #0065FC;
@@ -393,7 +362,7 @@ height: 100%;
 }
 .hostingSeeMore{
   margin-bottom: 40px;
-  font-weight:bolder; /*permet de définir la graisse utilisée pour le texte (la police)*/
+  font-weight:bolder;
 }
 @media (max-width: 1440px) {
   .hostingPopular {
@@ -477,11 +446,6 @@ height: 100%;
 .hostingPopularCardGrade {
   margin:0px 12px 4px 12px;
   display: inline-block;
-  /*pour les icones, liens, et images, span ;
-  inline prendd l'espace  disponble pour le contenu ,( sa serre à rien de mettre 
-   les hauteurs et les largeurs)/inline-block:sa va prendre les uns après les autres et 
-   ça ne va pas prendre toute l'espace comme display block et on peut 
-   lui attribué une latgeur et hauteur*/
 }
 .HostingPopulareGradeIconeStars{
   color: #0065FC;
@@ -489,18 +453,13 @@ height: 100%;
 .HostingPopulareGradeIconeStarsIconStars{
   color: #d9d9d9 !important;
 }
-/*#################################Section Activity#######################*/
-
-
+/*Section Activity*/
 .activityCard {
   box-shadow: 0 0 16px #0000002e;
   border-radius: 1rem;
   overflow: hidden;
-  /*overflow: hidden;/qui définit comment gérer le dépassement du contenu d'un élément dans son bloc /
-  hidden:Le contenu est rogné si besoin pour s'inscrire dans la boîte 
-  de remplissage (padding) et aucune barre de défilement n'est affichée.*/
+  overflow: hidden;
   display: flex; 
-  /*L'élément se comporte comme un élément de bloc et dispose son contenu selon le modèle des boîtes flexibles.*/
   flex-direction: column;
   transition-duration: 0.1s;
 }
@@ -510,27 +469,18 @@ height: 100%;
 .activityCardImg {
   position: relative;
   flex: 1;
-  /*flex: 1;/Les éléments flexibles peuvent être étirés ou réduits pour utiliser 
-  un espace proportionnel à leur coefficient de grossissement ou de rétrécissement afin de ne pas dépasser
-  d'un conteneur? (regroupe :flex-grow,shrink,basis*:dans ce cas le 1 est vas s'appliquer sur le flex-grow (1 1 0%)*/
 }
 .activityCardimg {
   position: absolute;
-  /* position: absolute;l'élément est retiré de flo (tout les éléménts) 
-  pour chercher le premier élément parent qui aura la postion relative :
-  les élémnts reste dans le fl(l'élément parent activityCardImg)*/
   height: 100%;
   width: 100%;
   object-fit: cover;
-  /*object-fit: cover;définit la façon dont le contenu d'un élément remplacé (<img> ou <video> par exemple) 
-  doit s'adapter à son conteneur en utilisant sa largeur et sa hauteur./cover: La taille réelle est calculée pour 
-  couvrir la zone décrite par la hauteur et la largeur de l'élément.*/
 }
 .activityCardTitle {
   margin: 1.2rem 1.5rem;
 }
 .ActivityTitle{
-  grid-column:1/-1;/*grid-column:1/span2;*/
+  grid-column:1/-1;
 }
 
 .Activity{
@@ -590,7 +540,8 @@ height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: auto 195px 195px 195px 195px 195px 195px;
   }
-}    
+}  
+/*Footer*/  
 .footer{
   display: grid;
   background-color:#F2F2F2;
@@ -601,7 +552,7 @@ height: 100%;
 }
 .footerLink {
   display: block;
-  cursor: pointer;/*qui indique un lien ;généralement c'est une main.*/
+  cursor: pointer;
 }
 .footerLink:hover{
   text-decoration: underline;
