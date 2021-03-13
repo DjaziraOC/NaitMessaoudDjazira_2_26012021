@@ -55,6 +55,57 @@ a {
 .headerNavLink:hover { /*pour survoler l'élément  */
   color: #0065FC;
 }
+@media screen and (min-width: 600px){
+  .header {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "logo . navbar button";
+  }
+  .headerNavLink[data-active=true] {
+    border-top: 3px solid #0065FC;
+  }
+  .headerNavLink:hover {
+    border-top: 3px solid #0065FC;
+  }
+}
+@media screen and (max-width:600px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo . button" 
+                        "navbar navbar navbar";
+  }
+  .headerimg {
+    order: 1;
+  }
+  .headerSignup {
+    order: 0;
+  }
+  .headerNav {
+    order: 1;
+  }
+  .headerNavLink {
+    border-top: none;
+    border-bottom: 3px solid #F2F2F2;
+    width: 50%;
+  }
+  .headerNavLink[data-active=true] {
+    border-bottom-color: #0065FC;
+  }
+  .headerNavLink:hover {
+    border-bottom-color:#0065FC;
+     /*:hover Cible n'importe quel élément <a> lorsque  */
+    /* celui-ci est survolé */
+  }
+}
+
+/*@media permet d'associer un ensemble d'instructions imbriquées
+(peut être utilisé au niveau le plus haut de la feuille de style et également 
+à l'intérieur d'un groupe de règles conditionnel.)*/
+/*@media screen and (Max /*Max si l'ecran est < ou = alors (.....)*/
+ /* .header{
+    grid-template-columns:auto 1fr auto auto; /*(emplacement des éléments dans la grille(colomn) )*/
+    /*grid-template-areas: "logo.navbar button"; /*(. pour avoir plus d'espace entre logo 
+    et les liens( barre d'outils))*/
+
 .main {
   max-width: 1440px;
   margin: auto; /*permet de centrer un conteneur*/
@@ -117,6 +168,33 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
   font-size:  16px;
   cursor: pointer; /*Le curseur est un pointeur /indique un lien/ une main*/
 }
+@media screen and (max-width: 600px) {
+  .searchForm {
+    display: flex;
+    width: 100%;
+  }
+  .searchFormInput {
+    flex: 1;
+    padding: 0 5px;
+ 
+  }
+  .searchFormSendInputText {
+    display: none; /*définit si un élément génère une boîte ou non(display box:none et contents)*/
+  }
+  .searchFormSendInputIconicon {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .searchFormSendInputText{
+    display: block; 
+  }
+  .searchFormSendInputIconicon{
+    display: none !important;
+  }
+}
+
 .searchFilters {
   display: flex;
   margin-top: 32px;
@@ -188,12 +266,48 @@ pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce tex
 .searchResultText {
   margin: 0;
 }
+@media screen and (max-width: 650px) {
+  .searchFiltersTitle {
+    width: 100%;
+  }
+  .searchFiltersFilter {
+    margin-right: 16px;
+  }
+}
+@media (max-width: 1440px) {
 
-.hosting { /* section hosting regroupe les deux grand volés (marseille et populaire*/
+  .hosting { /* section hosting regroupe les deux grand volés (marseille et populaire*/
   display: grid;/*piloter les éléments à partir de l'élément parent*/
   column-gap: 32px; /* column-gap permet de définir l'espace entre les colonnes d'un élément*/
   grid-template-columns: 2fr 1fr; /*définir les colonnes de la grille:fractionné */
-} 
+  } 
+}
+@media (max-width: 925px){
+  .hosting {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+}
+@media (max-width:1440px){
+  .hostingMainCardMarseille {
+    grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (min-width: 925px) {
+  .hostingMainCardMarseille {
+  grid-template-columns: repeat(3,1fr);
+  }
+}
+@media (max-width: 925px) and (min-width: 650px) {
+  .hostingMainCardMarseille {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  .hostingMainCardMarseille {
+  grid-template-columns: 1fr;
+  }
+}
 
 .hosting{
   padding: 32px 0px;
@@ -281,142 +395,152 @@ height: 100%;
   margin-bottom: 40px;
   font-weight:bolder; /*permet de définir la graisse utilisée pour le texte (la police)*/
 }
+@media (max-width: 1440px) {
+  .hostingPopular {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto repeat(3,1fr); 
+  }
+}
+@media (max-width: 925px){
+  .hostingPopular {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto repeat(3, 145px);
+    row-gap: 32px;
+    grid-row-start: 1; 
+    }
+}
 
 .hostingPopular {
-  grid-template-columns: 1fr;
-  grid-template-rows: auto repeat(3,1fr);
-  
-  }
-  .hostingPopular {
-    display: grid;
-    align-items: start;
-    padding:32px;
-    background-color:#F2F2F2 ;
-    border-radius:20px; 
-    column-gap: 32px; 
-    row-gap: 32px;
-  }
-  .hostingPopularTitle {
-    grid-column: 1/-1;
+  display: grid;
+  display: grid;
+  align-items: start;
+  padding:32px;
+  background-color:#F2F2F2 ;
+  border-radius:20px; 
+  column-gap: 32px; 
+  row-gap: 32px;
+}
+.hostingPopularTitle {
+  grid-column: 1/-1;
     }
-  .hostingPopularCard{
-    background-color: white;
-    padding: 6px;
-    border-radius: 16px;
-    box-shadow: 0 0 16px #0000002e; 
-    transition-duration: 0.1s;  
-    cursor: pointer;
-    box-sizing: border-box;
-    height: 100%;
-  }
-  .hostingPopularCard:hover {
-    transform: scale(1.02);
-  }
-  .hostingPopularTitle {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-  }
-  .hostingPopularCardContent{
-    display:flex;
-    align-items: stretch;
-    height: 100%;
-    overflow: auto;
-  }
-  .hostingPopularDescrip {
-    display: flex;
-    flex-direction: column;  
-  }
-  .hostingPopularCardContentImg {
-    position: relative;
-    min-height: 100%;
-    width: 40%;
-    min-width: 40%;
-    max-width: 40%;
-  }
-  .hostingPopularCardContentimg {
-    position: absolute;
-    object-fit: cover;
-    border-radius: 16px 0 0 16px;
-    width: 100%;
-    height: 100%; 
-  }
-  .hostingPopularDescipWhitespace{
-    flex: 1;
-  }
-  .hostinPopulargCardFigureTitle{
-    margin: 4px 12px 0 12px;
-  }
-  .hostingPopularCardParagraph{
-    margin: 4px 12px 0 12px;
-  }
-  .hostingPopularCardGrade {
-    margin:0px 12px 4px 12px;
-    display: inline-block;
-    /*pour les icones, liens, et images, span ;
-    inline prendd l'espace  disponble pour le contenu ,( sa serre à rien de mettre 
-     les hauteurs et les largeurs)/inline-block:sa va prendre les uns après les autres et 
-     ça ne va pas prendre toute l'espace comme display block et on peut 
-     lui attribué une latgeur et hauteur*/
-  }
-  .HostingPopulareGradeIconeStars{
-    color: #0065FC;
-  }
-  .HostingPopulareGradeIconeStarsIconStars{
-    color: #d9d9d9 !important;
-  }
-  /*#################################Section Activity#######################*/
-  
-  
-  .activityCard {
-    box-shadow: 0 0 16px #0000002e;
-    border-radius: 1rem;
-    overflow: hidden;
-    /*overflow: hidden;/qui définit comment gérer le dépassement du contenu d'un élément dans son bloc /
-    hidden:Le contenu est rogné si besoin pour s'inscrire dans la boîte 
-    de remplissage (padding) et aucune barre de défilement n'est affichée.*/
-    display: flex; 
-    /*L'élément se comporte comme un élément de bloc et dispose son contenu selon le modèle des boîtes flexibles.*/
-    flex-direction: column;
-    transition-duration: 0.1s;
-  }
-  .activityCard:hover {
-    transform: scale(1.01);
-  }
-  .activityCardImg {
-    position: relative;
-    flex: 1;
-    /*flex: 1;/Les éléments flexibles peuvent être étirés ou réduits pour utiliser 
-    un espace proportionnel à leur coefficient de grossissement ou de rétrécissement afin de ne pas dépasser
-    d'un conteneur? (regroupe :flex-grow,shrink,basis*:dans ce cas le 1 est vas s'appliquer sur le flex-grow (1 1 0%)*/
-  }
-  .activityCardimg {
-    position: absolute;
-    /* position: absolute;l'élément est retiré de flo (tout les éléménts) 
-    pour chercher le premier élément parent qui aura la postion relative :
-    les élémnts reste dans le fl(l'élément parent activityCardImg)*/
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    /*object-fit: cover;définit la façon dont le contenu d'un élément remplacé (<img> ou <video> par exemple) 
-    doit s'adapter à son conteneur en utilisant sa largeur et sa hauteur./cover: La taille réelle est calculée pour 
-    couvrir la zone décrite par la hauteur et la largeur de l'élément.*/
-  }
-  .activityCardTitle {
-    margin: 1.2rem 1.5rem;
-  }
-  .ActivityTitle{
-    grid-column:1/-1;/*grid-column:1/span2;*/
-  }
-  
-  .Activity{
-    display: grid;
-    column-gap: 32px;
-    box-sizing:border-box;
-    margin: 64px 0;
-  }
-  
- 
+.hostingPopularCard{
+  background-color: white;
+  padding: 6px;
+  border-radius: 16px;
+  box-shadow: 0 0 16px #0000002e; 
+  transition-duration: 0.1s;  
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 100%;
+}
+.hostingPopularCard:hover {
+  transform: scale(1.02);
+}
+.hostingPopularTitle {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+.hostingPopularCardContent{
+  display:flex;
+  align-items: stretch;
+  height: 100%;
+  overflow: auto;
+}
+.hostingPopularDescrip {
+  display: flex;
+  flex-direction: column;  
+}
+.hostingPopularCardContentImg {
+  position: relative;
+  min-height: 100%;
+  width: 40%;
+  min-width: 40%;
+  max-width: 40%;
+}
+.hostingPopularCardContentimg {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 16px 0 0 16px;
+  width: 100%;
+  height: 100%; 
+}
+.hostingPopularDescipWhitespace{
+  flex: 1;
+}
+.hostinPopulargCardFigureTitle{
+  margin: 4px 12px 0 12px;
+}
+.hostingPopularCardParagraph{
+  margin: 4px 12px 0 12px;
+}
+.hostingPopularCardGrade {
+  margin:0px 12px 4px 12px;
+  display: inline-block;
+  /*pour les icones, liens, et images, span ;
+  inline prendd l'espace  disponble pour le contenu ,( sa serre à rien de mettre 
+   les hauteurs et les largeurs)/inline-block:sa va prendre les uns après les autres et 
+   ça ne va pas prendre toute l'espace comme display block et on peut 
+   lui attribué une latgeur et hauteur*/
+}
+.HostingPopulareGradeIconeStars{
+  color: #0065FC;
+}
+.HostingPopulareGradeIconeStarsIconStars{
+  color: #d9d9d9 !important;
+}
+/*#################################Section Activity#######################*/
+
+
+.activityCard {
+  box-shadow: 0 0 16px #0000002e;
+  border-radius: 1rem;
+  overflow: hidden;
+  /*overflow: hidden;/qui définit comment gérer le dépassement du contenu d'un élément dans son bloc /
+  hidden:Le contenu est rogné si besoin pour s'inscrire dans la boîte 
+  de remplissage (padding) et aucune barre de défilement n'est affichée.*/
+  display: flex; 
+  /*L'élément se comporte comme un élément de bloc et dispose son contenu selon le modèle des boîtes flexibles.*/
+  flex-direction: column;
+  transition-duration: 0.1s;
+}
+.activityCard:hover {
+  transform: scale(1.01);
+}
+.activityCardImg {
+  position: relative;
+  flex: 1;
+  /*flex: 1;/Les éléments flexibles peuvent être étirés ou réduits pour utiliser 
+  un espace proportionnel à leur coefficient de grossissement ou de rétrécissement afin de ne pas dépasser
+  d'un conteneur? (regroupe :flex-grow,shrink,basis*:dans ce cas le 1 est vas s'appliquer sur le flex-grow (1 1 0%)*/
+}
+.activityCardimg {
+  position: absolute;
+  /* position: absolute;l'élément est retiré de flo (tout les éléménts) 
+  pour chercher le premier élément parent qui aura la postion relative :
+  les élémnts reste dans le fl(l'élément parent activityCardImg)*/
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /*object-fit: cover;définit la façon dont le contenu d'un élément remplacé (<img> ou <video> par exemple) 
+  doit s'adapter à son conteneur en utilisant sa largeur et sa hauteur./cover: La taille réelle est calculée pour 
+  couvrir la zone décrite par la hauteur et la largeur de l'élément.*/
+}
+.activityCardTitle {
+  margin: 1.2rem 1.5rem;
+}
+.ActivityTitle{
+  grid-column:1/-1;/*grid-column:1/span2;*/
+}
+
+.Activity{
+  display: grid;
+  column-gap: 32px;
+  box-sizing:border-box;
+  margin: 64px 0;
+}
+
+@media (min-width: 1100px){
   .Activity{
     grid-template-columns:repeat(4, 1fr);
     grid-template-rows: auto 225px 32px 32px 32px 225px;
@@ -445,19 +569,68 @@ height: 100%;
     grid-column: 4/5;
     grid-row: 4/7;
   }
+}
+@media (max-width: 1100px) {
+  .Activity {
+    row-gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 195px 195px;
+  }
+}
+@media (max-width: 925px) {
+  .Activity {
+    row-gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 195px 195px 195px;
+  }
+}
+@media (max-width: 650px) {
+  .Activity {
+    row-gap: 32px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 195px 195px 195px 195px 195px 195px;
+  }
+}    
+.footer{
+  display: grid;
+  background-color:#F2F2F2;
+  padding:32px ;  
+}
+.footerTitle{
+  margin: 0% ;
+}
+.footerLink {
+  display: block;
+  cursor: pointer;/*qui indique un lien ;généralement c'est une main.*/
+}
+.footerLink:hover{
+  text-decoration: underline;
+} 
+@media (min-width: 750px){
   .footer{
-    display: grid;
-    background-color:#F2F2F2;
-    padding:32px ;  
+    grid-template-columns: repeat(3,1fr); 
   }
-  .footerTitle{
-    margin: 0% ;
+}
+@media (max-width: 750px) {
+  .footer{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
   }
-  .footerLink {
+  .footerContent{
     display: block;
-    cursor: pointer;/*qui indique un lien ;généralement c'est une main.*/
+    margin: 16px 0px;
   }
-  .footerLink:hover{
-    text-decoration: underline;
+  .footerContent:first-child {
+      margin-top: 0;
   }
-    
+  .footerContent:last-child {
+    margin-bottom: 0;
+  }
+  .footerTitle {
+    margin: 0;
+  }
+  .footerLink:last-child {
+    margin-bottom: 0;
+  }
+}
+ 
