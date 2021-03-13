@@ -1,0 +1,638 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: "Raleway", "Sans serif";  /*le style de texte sera apliquéde sur l'ensemble de texte site*/
+  margin: 0;                                          
+}
+
+a {
+ color: inherit;
+ text-decoration: none; 
+}
+.header {
+  display: grid;                        
+  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+}
+.headerLogo{
+  padding: 0px 32px; /*(2rem à droite et à gauche)*/
+  height: 45px; /* peut être à modifier */
+  margin:auto;  /*(par défaut l'élément sera au centre)*/
+  grid-area:logo;
+}
+.headerNav {   
+   /*  la barre d'outil principale du site (<nav> représente une section d'une page
+   ayant des liens vers d'autres pages ou des fragments de cette page)*/
+  display: flex;
+  /*L'élément se comporte comme un élément de bloc et 
+  dispose son contenu selon le modèle des boîtes flexibles.*/
+  align-items: right;
+  grid-area: navbar; 
+  /*permet de définir la taille d'un objet de la grille et son 
+  emplacement via les bords de sa zone de grille."navbar": le bouton est placé dans la barre d'outils principale du 
+  navigateur, à côté de la barre d'URL. (pour les 2 liens princip du site )*/
+}
+.headerSignup {
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  color: #0065FC;
+  font-weight: 700;
+  grid-area:button;
+}
+.headerNavLink {
+  padding: 40px;
+  font-weight: 500;/* la police du text utilisée */
+  text-align: center;
+  transition-duration: 0.2s; /*nombre de secondes :la durée une animation.*/
+  border-top:  5px transparent solid; 
+  border-bottom: 3px transparent solid;/*bordure du bas (liens)*/
+}
+.headerNavLink[data-active=true] {
+  color: #0065FC;
+}
+.headerNavLink:hover { /*pour survoler l'élément  */
+  color: #0065FC;
+}
+@media screen and (min-width: 600px){
+  .header {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "logo . navbar button";
+  }
+  .headerNavLink[data-active=true] {
+    border-top: 3px solid #0065FC;
+  }
+  .headerNavLink:hover {
+    border-top: 3px solid #0065FC;
+  }
+}
+@media screen and (max-width:600px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo . button" 
+                        "navbar navbar navbar";
+  }
+  .headerimg {
+    order: 1;
+  }
+  .headerSignup {
+    order: 0;
+  }
+  .headerNav {
+    order: 1;
+  }
+  .headerNavLink {
+    border-top: none;
+    border-bottom: 3px solid #F2F2F2;
+    width: 50%;
+  }
+  .headerNavLink[data-active=true] {
+    border-bottom-color: #0065FC;
+  }
+  .headerNavLink:hover {
+    border-bottom-color:#0065FC;
+     /*:hover Cible n'importe quel élément <a> lorsque  */
+    /* celui-ci est survolé */
+  }
+}
+
+/*@media permet d'associer un ensemble d'instructions imbriquées
+(peut être utilisé au niveau le plus haut de la feuille de style et également 
+à l'intérieur d'un groupe de règles conditionnel.)*/
+/*@media screen and (Max /*Max si l'ecran est < ou = alors (.....)*/
+ /* .header{
+    grid-template-columns:auto 1fr auto auto; /*(emplacement des éléments dans la grille(colomn) )*/
+    /*grid-template-areas: "logo.navbar button"; /*(. pour avoir plus d'espace entre logo 
+    et les liens( barre d'outils))*/
+   
+.main {
+  max-width: 1440px;
+  margin: auto; /*permet de centrer un conteneur*/
+  padding:32px;
+  box-sizing: border-box;
+}
+.main {
+  display:block;
+}
+
+.searchHeaderTitle {
+  margin-bottom:20px 0px; 
+  /*20px s'appliquera (haut et ba) et 0 (gauche et droit)*/
+}
+.searchHeaderParagraph {
+  margin-top: 16px 0px;
+}
+.searchForm {
+  display: inline-flex;
+  max-width: 100%;
+  overflow: auto;
+  /*overflow définit comment gérer le dépassement
+   du contenu d'un élément dans son bloc*/
+}
+.searchFormIconMap {
+  background-color: #F2F2F2;
+  padding: 08px 12px;
+  border-radius: 16px 0 0 16px;
+  text-align:center;
+  /*alignement horizontal d'un élément 
+  de bloc ou de la boîte d'une cellule de tableau. */
+}
+.searchFormIconMap {
+  margin-left: 1.5px;
+}
+.searchFormInput {
+  border-right: none;
+  border-left: none;
+  border-top: #F2F2F2 1px solid;
+  border-bottom: #F2F2F2 1px solid;
+  padding: 0 24px;
+  max-width: 225px;
+}
+/*Le pseudo-élément ::placeholder représente le texte de substitution 
+pour un élément <input> ou <textarea>.pour personnaliser l'apparence de ce texte.*/
+.searchFormInput::placeholder { 
+  font-family: "Raleway", "Sans serif";
+  font-size: 16px;/*(la taille de texte)*/
+  font-weight: bold;  /*(la police du texte)*/
+  color: #00000069;
+}
+.searchFormSendInput {
+  background-color: #0065FC;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0 16px 16px 0;
+  padding: 0 24px;
+  font-family: "Raleway", "Sans serif";
+  font-size:  16px;
+  cursor: pointer; /*Le curseur est un pointeur /indique un lien/ une main*/
+}
+
+@media screen and (max-width: 600px) {
+  .searchForm {
+    display: flex;
+    width: 100%;
+  }
+  .searchFormInput {
+    flex: 1;
+    padding: 0 5px;
+ 
+  }
+  .searchFormSendInputText {
+    display: none; /*définit si un élément génère une boîte ou non(display box:none et contents)*/
+  }
+  .searchFormSendInputIconicon {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .searchFormSendInputText{
+    display: block; 
+  }
+  .searchFormSendInputIconicon{
+    display: none !important;
+  }
+}
+
+.searchFilters {
+  display: flex;
+  margin-top: 32px;
+  flex-wrap: wrap; 
+  /* flex-wrap indique si les éléments flexibles sont contraints à être disposés sur une seule ligne ou s'ils 
+  peuvent être affichés  sur plusieurs lignes avec un retour automatique.*/
+}
+.searchFiltersTitle {
+  margin: 0 32px 16px 0;
+  display: flex;
+  align-items: center;
+}
+.searchFiltersFilter {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  border: 2px solid #d9d9d9;
+  border-radius: 32px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition-duration: 0.1s;
+  font-weight: bold;
+}
+.searchFiltersFilter:last-child {
+  margin-right: 0;
+}
+.searchFiltersFilter:hover {
+  background-color: #f3f8ff;
+  transform: scale(1.015);
+}
+.searchFiltersFilterIcon {
+  background-color: #DEEBFF;
+  border-radius: 100%;
+  height: 48px;
+  width: 48px;
+  min-height: 56px;
+  min-width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -2px;
+}
+.searchFiltersFilterIconicon{
+  color: blue;
+}
+.searchFiltersFilterTitle {
+  margin: 0 16px;
+}
+.searchResult {
+  display: flex;
+  align-items: center;
+  margin: 16px 0 32px 0;
+}
+.searchResultIcon{
+  height: 32px;
+  width: 32px;
+  min-height: 32px;
+  min-width: 32px;
+  border: solid 1px #d9d9d9;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+.searchResulIconicon{
+  color: #0065FC;
+}
+.searchResultText {
+  margin: 0;
+}
+@media screen and (max-width: 650px) {
+  .searchFiltersTitle {
+    width: 100%;
+  }
+  .searchFiltersFilter {
+    margin-right: 16px;
+  }
+}
+@media (max-width: 1440px) {
+  .hosting { /* section hosting regroupe les deux grand volés (marseille et populaire*/
+  display: grid;/*piloter les éléments à partir de l'élément parent*/
+  column-gap: 32px; /* column-gap permet de définir l'espace entre les colonnes d'un élément*/
+  grid-template-columns: 2fr 1fr; /*définir les colonnes de la grille:fractionné */
+} 
+@media (max-width: 925px){
+  .hosting {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+}
+@media (max-width:1440px){
+  .hostingMainCardMarseille {
+    grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (min-width: 925px) {
+  .hostingMainCardMarseille {
+  grid-template-columns: repeat(3,1fr);
+  }
+}
+@media (max-width: 925px) and (min-width: 650px) {
+  .hostingMainCardMarseille {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  .hostingMainCardMarseille {
+  grid-template-columns: 1fr;
+  }
+}
+.hosting{
+  padding: 32px 0px;
+  max-width:100%;
+  height:100%;
+  background-color:white;
+  border-radius:20px;
+} 
+.hostingMainCardMarseille {
+  display: grid;
+  padding:0 32px;
+  box-sizing:border-box;
+  background-color:#F2F2F2 ;
+  border-radius:20px;
+  column-gap: 32px; /*espacées de 32px* colomn*/
+  row-gap: 32px;/*espacées de 32px ligne*/
+}  
+.hostingTitle{
+  display: block; 
+  /*l'élément prend toute la largeur disponble et qui pousse les autres éléments en dessous *pour les div , p et /
+  font-size: 25px;
+  margin-block-start: 13px;/*définit la marge logique appliquée au début des éléments en bloc, 
+  selon le mode d'écriture, la directionalité et l'orientation du texte*/
+  margin-block-end: 13px;
+  margin-inline-start: 0px; 
+  /* la marge logique appliquée au début des éléments en ligne, 
+  selon le mode d'écriture, la directionalité et l'orientation du texte*/
+  margin-inline-end: 0px;
+}
+.hostingMainTitle {
+  grid-column: 1/-1; 
+  /* OU (grid-column: 1 /-1)(l'emplacement de titre dans la grille ?définir la 
+    taille et l'emplacement d'un élément sur la grille en 
+    indiquant l'emplacement du début, de la fin et/ou sa taille. 
+    )*/
+}
+
+.hostingCard{
+background-color: white;
+padding: 6px;
+transition-duration: 0.1s;
+border-radius:20px;
+box-shadow: 0 0 16px #0000002e;
+cursor: pointer;
+width: 100%;
+height: 100%;
+}
+.hostingCard:hover {
+  transform: scale(1.02);
+}
+.hostingCardFigureImg {
+  margin: 0;
+}
+.hostingCardimg{
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.hostingCardTitle {
+  margin: 4px 12px 4px 12px;
+}
+.hostingCardParagraph {
+  margin: 4px 12px 4px 12px;
+}
+.hostingCardPrice {
+  font-weight: bold;
+}
+.hostingCardGradeIcon {
+  margin:0px 12px 4px 12px;
+  display: inline-block;
+  /*pour les icones, liens, et images, span ; inline prendd l'espace  disponble pour le contenu ,
+  ( sa serre à rien de mettre les hauteurs et les largeurs)/inline-block:sa va prendre les uns après les autres et 
+   ça ne va pas prendre toute l'espace comme display block et on peut lui attribué une latgeur et hauteur*/
+}
+.hostingCardGradeIconStars {
+  color: #0065FC;
+}
+.hostingCardGradeIconStarsIconStars{
+  color: #d9d9d9 !important;
+}
+.hostingSeeMore{
+  margin-bottom: 40px;
+  font-weight:bolder; /*permet de définir la graisse utilisée pour le texte (la police)*/
+  }
+/*###################Hosting Popular#####################################*/
+
+@media (max-width: 1440px) {
+  .hostingPopular {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto repeat(3,1fr);
+  
+  }
+}
+@media (max-width: 925px){
+  .hostingPopular {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto repeat(3, 145px);
+    row-gap: 32px;
+    grid-row-start: 1; 
+    }
+}
+.hostingPopular {
+  display: grid;
+  align-items: start;
+  padding:32px;
+  background-color:#F2F2F2 ;
+  border-radius:20px; 
+  column-gap: 32px; 
+  row-gap: 32px;
+}
+.hostingPopularTitle {
+  grid-column: 1/-1;
+  }
+.hostingPopularCard{
+  background-color: white;
+  padding: 6px;
+  border-radius: 16px;
+  box-shadow: 0 0 16px #0000002e; 
+  transition-duration: 0.1s;  
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 100%;
+}
+.hostingPopularCard:hover {
+  transform: scale(1.02);
+}
+.hostingPopularTitle {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+.hostingPopularCardContent{
+  display:flex;
+  align-items: stretch;
+  height: 100%;
+  overflow: auto;
+}
+.hostingPopularDescrip {
+  display: flex;
+  flex-direction: column;  
+}
+.hostingPopularCardContentImg {
+  position: relative;
+  min-height: 100%;
+  width: 40%;
+  min-width: 40%;
+  max-width: 40%;
+}
+.hostingPopularCardContentimg {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 16px 0 0 16px;
+  width: 100%;
+  height: 100%; 
+}
+.hostingPopularDescipWhitespace{
+  flex: 1;
+}
+.hostinPopulargCardFigureTitle{
+  margin: 4px 12px 0 12px;
+}
+.hostingPopularCardParagraph{
+  margin: 4px 12px 0 12px;
+}
+.hostingPopularCardGrade {
+  margin:0px 12px 4px 12px;
+  display: inline-block;
+  /*pour les icones, liens, et images, span ;
+  inline prendd l'espace  disponble pour le contenu ,( sa serre à rien de mettre 
+   les hauteurs et les largeurs)/inline-block:sa va prendre les uns après les autres et 
+   ça ne va pas prendre toute l'espace comme display block et on peut 
+   lui attribué une latgeur et hauteur*/
+}
+.HostingPopulareGradeIconeStars{
+  color: #0065FC;
+}
+.HostingPopulareGradeIconeStarsIconStars{
+  color: #d9d9d9 !important;
+}
+/*#################################Section Activity#######################*/
+
+
+.activityCard {
+  box-shadow: 0 0 16px #0000002e;
+  border-radius: 1rem;
+  overflow: hidden;
+  /*overflow: hidden;/qui définit comment gérer le dépassement du contenu d'un élément dans son bloc /
+  hidden:Le contenu est rogné si besoin pour s'inscrire dans la boîte 
+  de remplissage (padding) et aucune barre de défilement n'est affichée.*/
+  display: flex; 
+  /*L'élément se comporte comme un élément de bloc et dispose son contenu selon le modèle des boîtes flexibles.*/
+  flex-direction: column;
+  transition-duration: 0.1s;
+}
+.activityCard:hover {
+  transform: scale(1.01);
+}
+.activityCardImg {
+  position: relative;
+  flex: 1;
+  /*flex: 1;/Les éléments flexibles peuvent être étirés ou réduits pour utiliser 
+  un espace proportionnel à leur coefficient de grossissement ou de rétrécissement afin de ne pas dépasser
+  d'un conteneur? (regroupe :flex-grow,shrink,basis*:dans ce cas le 1 est vas s'appliquer sur le flex-grow (1 1 0%)*/
+}
+.activityCardimg {
+  position: absolute;
+  /* position: absolute;l'élément est retiré de flo (tout les éléménts) 
+  pour chercher le premier élément parent qui aura la postion relative :
+  les élémnts reste dans le fl(l'élément parent activityCardImg)*/
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /*object-fit: cover;définit la façon dont le contenu d'un élément remplacé (<img> ou <video> par exemple) 
+  doit s'adapter à son conteneur en utilisant sa largeur et sa hauteur./cover: La taille réelle est calculée pour 
+  couvrir la zone décrite par la hauteur et la largeur de l'élément.*/
+}
+.activityCardTitle {
+  margin: 1.2rem 1.5rem;
+}
+.ActivityTitle{
+  grid-column:1/-1;/*grid-column:1/span2;*/
+}
+
+.Activity{
+  display: grid;
+  column-gap: 32px;
+  box-sizing:border-box;
+  margin: 64px 0;
+}
+
+@media (min-width: 1100px){
+.Activity{
+  grid-template-columns:repeat(4, 1fr);
+  grid-template-rows: auto 225px 32px 32px 32px 225px;
+}
+.WrapperActivity1 {
+  grid-row: 2/7;
+  grid-column: 1/2;
+}
+.WrapperActivity2{
+  grid-column: 2/3;
+  grid-row: 2/5;
+}
+.WrapperActivity3 {
+  grid-column: 3/4;
+  grid-row: 2/7;
+}
+.WrapperActivity4 {
+  grid-column: 4/5;
+  grid-row: 2/3;
+}
+.WrapperActivity5 {
+  grid-column: 2/3;
+  grid-row: 6/7;
+}
+.WrapperActivity6{
+  grid-column: 4/5;
+  grid-row: 4/7;
+}
+}
+@media (max-width: 1100px) {
+  .Activity {
+    row-gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 195px 195px;
+  }
+}
+@media (max-width: 925px) {
+  .Activity {
+    row-gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 195px 195px 195px;
+  }
+}
+@media (max-width: 650px) {
+  .Activity {
+    row-gap: 32px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 195px 195px 195px 195px 195px 195px;
+  }
+}
+
+/*############################Section footer#####################*/
+.footer{
+  display: grid;
+  background-color:#F2F2F2;
+  padding:32px ;  
+}
+.footerTitle{
+  margin: 0% ;
+}
+.footerLink {
+  display: block;
+  cursor: pointer;/*qui indique un lien ;généralement c'est une main.*/
+}
+.footerLink:hover{
+  text-decoration: underline;
+}
+
+@media (min-width: 750px){
+  .footer{
+    grid-template-columns: repeat(3,1fr); 
+  }
+}
+@media (max-width: 750px) {
+  .footer{
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  }
+  .footerContent{
+    display: block;
+    margin: 16px 0px;
+  }
+    .footerContent:first-child {
+      margin-top: 0;
+    }
+    .footerContent:last-child {
+      margin-bottom: 0;
+    }
+    .footerTitle {
+      margin: 0;
+    }
+    .footerLink:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
