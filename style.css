@@ -24,7 +24,7 @@ a {
 }
 .headerNav {   
   display: flex;
-  align-items: right;
+  align-items:center;
   grid-area: navbar; 
 }
 .headerSignup {
@@ -95,16 +95,15 @@ a {
   box-sizing: border-box;
 }
 /*Body*/
-/*Header*/
 .main {
   display:block;
 }
 .searchHeaderTitle {
-  margin-bottom:20px 0px; 
+  margin-bottom:8px;
 
 }
 .searchHeaderParagraph {
-  margin-top: 16px 0px;
+  margin-top:0;
 }
 .searchForm {
   display: inline-flex;
@@ -309,9 +308,6 @@ a {
 }  
 .hostingTitle{
   display: block; 
-  margin-block-end: 13px;
-  margin-inline-start: 0px; 
-  margin-inline-end: 0px;
 }
 .hostingMainTitle {
   grid-column: 1/-1; 
